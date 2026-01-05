@@ -24,7 +24,8 @@ def _create_default_config():
         'CycleT': '1',
         'MaxRT': '50',
         'MinRT': '0',
-        'Mode': '0',
+        'CyMin': '5',
+        'Mode': '0'
     }
     
     config['Advanced'] ={

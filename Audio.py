@@ -37,7 +37,7 @@ def generate(word):
     os.remove('temp_audio.wav')
 
 
-def play_audio(*words):
+def play(*words):
     if not words:
         return
     
@@ -92,21 +92,3 @@ def clean(words=None):
         words_to_keep = set(words) if not isinstance(words, set) else words
         _cache = {word: audio for word, audio in _cache.items() 
                  if word in words_to_keep}
-
-
-if __name__ == "__main__":
-    set_language('es')
-    
-    generate("hola")
-    generate("mundo")
-    
-    print(f"'hola' ready: {ready('hola')}")
-    print(f"'adios' ready: {ready('adios')}")
-    
-    play_audio("hola", "mundo")
-    
-    generate("adios")
-    clean(words=["hola", "mundo"])
-    
-    print(f"After clean - 'adios' ready: {ready('adios')}")
-    print(f"After clean - 'hola' ready: {ready('hola')}")
