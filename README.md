@@ -1,4 +1,4 @@
-# Trainer-app
+# ![Logo](Iconx2.png)Trainer-app
 
 ## About App
 A Python-based coaching assistant featuring dynamic TTS audio feedback. Generates random, serial, and cumulative workout routines with customizable timing and multilingual support.

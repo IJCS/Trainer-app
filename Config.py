@@ -32,7 +32,13 @@ def _create_default_config():
         'SerRe': 'False',
         'SerIn': '100',
         'SerDe': '0',
-        'CumRe': 'True'
+        'CumRe': 'True',
+        'WaitNar': 'True'
+    }
+    
+    config['Audio'] = {
+        'Rate': '150',
+        'Pause': '500'
     }
     
     with open(CONFIG_FILE, 'w') as configfile:
@@ -49,6 +55,12 @@ def Profile(option):
 def Advanced(option):
     config = _get_config()
     return config.get('Advanced', option)
+
+def Audio(option):
+    config = _get_config()
+    if not config.has_section('Audio'):
+        return '150' if option == 'Rate' else '500'
+    return config.get('Audio', option)
 
 def Set(section, option, value):
     config = _get_config()

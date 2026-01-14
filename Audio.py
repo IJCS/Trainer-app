@@ -3,10 +3,14 @@ import wave
 import pyttsx3
 import pyaudio
 from pydub import AudioSegment
+    
+
 
 
 _cache = {}
 _language = 'es'
+_rate = 150
+_pause_duration = 500
 
 
 def set_language(language):
@@ -14,17 +18,28 @@ def set_language(language):
     _language = language
 
 
+def set_rate(rate):
+    global _rate
+    _rate = rate
+
+
+def set_pause(pause_ms):
+    global _pause_duration
+    _pause_duration = pause_ms
+
+
 def generate(word):
     if word in _cache:
         return
     
     engine = pyttsx3.init()
-    
-    voices = engine.getProperty('voices')
+    voices =  engine.getProperty('voices')
     for voice in voices:
         if _language in voice.languages or _language in voice.id.lower():
             engine.setProperty('voice', voice.id)
             break
+    
+    engine.setProperty('rate', _rate)
     
     audio_buffer = io.BytesIO()
     engine.save_to_file(word, 'temp_audio.wav')
@@ -42,7 +57,7 @@ def play(*words):
         return
     
     segments = []
-    pause = AudioSegment.silent(duration=5)
+    pause = AudioSegment.silent(duration=_pause_duration)
     
     for i, word in enumerate(words):
         if word not in _cache:
