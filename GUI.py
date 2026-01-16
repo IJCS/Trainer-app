@@ -1,14 +1,23 @@
 import tkinter as tk
 from tkinter import ttk
+import sys
 import Lang
 import Routine
+import os
 
 gui_widgets = {}
 gui_variables = {}
 advanced_window = None
 
+def recurse(rute):
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, rute)
+
 def setup_window(root):
-    icon = tk.PhotoImage(file='Icon.png') 
+    icon = tk.PhotoImage(file=recurse('Icon.png'))
     root.iconphoto(True, icon)
     root.geometry("400x680")
     root.resizable(False, False)
@@ -120,7 +129,7 @@ def show_about_window(root):
     frame.pack(fill=tk.BOTH, expand=True)
     
     try:
-        icon_img = tk.PhotoImage(file='Icon.png',)
+        icon_img = tk.PhotoImage(file=recurse('Icon.png'))
         icon_label = ttk.Label(frame, image=icon_img)
         icon_label.image = icon_img
         icon_label.pack(pady=(0, 10))

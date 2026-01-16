@@ -1,2 +1,8 @@
 Trainer-config.ini
 Play.bat
+build/
+dist/
+*.spec
+__pycache__/
+*.exe
+.venv/

@@ -1,4 +1,4 @@
-# ![Logo](Iconx2.png)Trainer-app
+# ![Logo](Icon.png)Trainer-app
 
 ## About App
 A Python-based coaching assistant featuring dynamic TTS audio feedback. Generates random, serial, and cumulative workout routines with customizable timing and multilingual support.
@@ -21,7 +21,19 @@ A Python-based coaching assistant featuring dynamic TTS audio feedback. Generate
     * Cumulative Mode: Randomly selects accumulating sequences; optional repeats, stops if no more unique exercises remain.
 4. Start training.
 
+## Important Note on Antivirus Detection
+Some antivirus programs may flag this executable as a potential threat or "unrecognized software". Please be assured that this is a false positive. 
+
 ## Creator support
-If this tool helped you track your progress or if you find the project useful, consider supporting my work! Every donatios helps me: 
+If this tool helped you track your progress or if you find the project useful, consider supporting my work! Every donatios helps me:
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H2H11RMG69) [![Invitame un café en cafecito.app](https://cdn.cafecito.app/imgs/buttons/button_3.svg)](https://cafecito.app/ijcs)
+
+## Libraries Used
+- [pyttsx3](https://github.com/nateshmbhat/pyttsx3)
+- [PyAudio](https://github.com/jleb/pyaudio)
+- [pydub](https://github.com/jiaaro/pydub)
+
+## Known Issues
+* **Static Help Text:** The help text does not currently update when the application language is changed.
+* **Series Mode Malfunction:** The "Series Mode" is not operating as intended. It currently functions as a cumulative mode rather than its designated behavior.
